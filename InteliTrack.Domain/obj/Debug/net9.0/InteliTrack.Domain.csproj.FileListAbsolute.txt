@@ -1,0 +1,11 @@
+/Users/adamatraore/InteliTrack/InteliTrack.Domain/bin/Debug/net9.0/InteliTrack.Domain.deps.json
+/Users/adamatraore/InteliTrack/InteliTrack.Domain/bin/Debug/net9.0/InteliTrack.Domain.dll
+/Users/adamatraore/InteliTrack/InteliTrack.Domain/bin/Debug/net9.0/InteliTrack.Domain.pdb
+/Users/adamatraore/InteliTrack/InteliTrack.Domain/obj/Debug/net9.0/InteliTrack.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/adamatraore/InteliTrack/InteliTrack.Domain/obj/Debug/net9.0/InteliTrack.Domain.AssemblyInfoInputs.cache
+/Users/adamatraore/InteliTrack/InteliTrack.Domain/obj/Debug/net9.0/InteliTrack.Domain.AssemblyInfo.cs
+/Users/adamatraore/InteliTrack/InteliTrack.Domain/obj/Debug/net9.0/InteliTrack.Domain.csproj.CoreCompileInputs.cache
+/Users/adamatraore/InteliTrack/InteliTrack.Domain/obj/Debug/net9.0/InteliTrack.Domain.dll
+/Users/adamatraore/InteliTrack/InteliTrack.Domain/obj/Debug/net9.0/refint/InteliTrack.Domain.dll
+/Users/adamatraore/InteliTrack/InteliTrack.Domain/obj/Debug/net9.0/InteliTrack.Domain.pdb
+/Users/adamatraore/InteliTrack/InteliTrack.Domain/obj/Debug/net9.0/ref/InteliTrack.Domain.dll

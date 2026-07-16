@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "JQQ2F2o7uOX3bZSFq0U27/LGsPHM9ehzz5xjyEiMShg=",
+  "Source": "InteliTrack.Api",
+  "BasePath": "_content/InteliTrack.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
