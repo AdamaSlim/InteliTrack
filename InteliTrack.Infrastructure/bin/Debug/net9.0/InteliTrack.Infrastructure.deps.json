@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v9.0": {
       "InteliTrack.Infrastructure/1.0.0": {
         "dependencies": {
+          "InteliTrack.Application": "1.0.0",
           "InteliTrack.Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore": "9.0.1",
           "Microsoft.EntityFrameworkCore.Design": "9.0.1",
@@ -609,6 +610,17 @@
         }
       },
       "System.Threading.Channels/7.0.0": {},
+      "InteliTrack.Application/1.0.0": {
+        "dependencies": {
+          "InteliTrack.Domain": "1.0.0"
+        },
+        "runtime": {
+          "InteliTrack.Application.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "InteliTrack.Domain/1.0.0": {
         "runtime": {
           "InteliTrack.Domain.dll": {
@@ -911,6 +923,11 @@
       "sha512": "sha512-qmeeYNROMsONF6ndEZcIQ+VxR4Q/TX/7uIVLJqtwIWL7dDWeh0l1UIqgo4wYyjG//5lUNhwkLDSFl+pAWO6oiA==",
       "path": "system.threading.channels/7.0.0",
       "hashPath": "system.threading.channels.7.0.0.nupkg.sha512"
+    },
+    "InteliTrack.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "InteliTrack.Domain/1.0.0": {
       "type": "project",

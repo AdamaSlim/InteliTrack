@@ -8,6 +8,7 @@
 /Users/adamatraore/InteliTrack/InteliTrack.Application/obj/Debug/net9.0/InteliTrack.Application.AssemblyInfoInputs.cache
 /Users/adamatraore/InteliTrack/InteliTrack.Application/obj/Debug/net9.0/InteliTrack.Application.AssemblyInfo.cs
 /Users/adamatraore/InteliTrack/InteliTrack.Application/obj/Debug/net9.0/InteliTrack.Application.csproj.CoreCompileInputs.cache
+/Users/adamatraore/InteliTrack/InteliTrack.Application/obj/Debug/net9.0/InteliTrack.Application.sourcelink.json
 /Users/adamatraore/InteliTrack/InteliTrack.Application/obj/Debug/net9.0/InteliTr.63A4EE9A.Up2Date
 /Users/adamatraore/InteliTrack/InteliTrack.Application/obj/Debug/net9.0/InteliTrack.Application.dll
 /Users/adamatraore/InteliTrack/InteliTrack.Application/obj/Debug/net9.0/refint/InteliTrack.Application.dll

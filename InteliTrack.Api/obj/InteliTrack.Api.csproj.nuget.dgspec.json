@@ -50,6 +50,18 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[10.2.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -217,6 +229,9 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
+              "/Users/adamatraore/InteliTrack/InteliTrack.Application/InteliTrack.Application.csproj": {
+                "projectPath": "/Users/adamatraore/InteliTrack/InteliTrack.Application/InteliTrack.Application.csproj"
+              },
               "/Users/adamatraore/InteliTrack/InteliTrack.Domain/InteliTrack.Domain.csproj": {
                 "projectPath": "/Users/adamatraore/InteliTrack/InteliTrack.Domain/InteliTrack.Domain.csproj"
               }

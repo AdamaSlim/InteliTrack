@@ -912,6 +912,19 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
+      "InteliTrack.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "InteliTrack.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/InteliTrack.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/InteliTrack.Application.dll": {}
+        }
+      },
       "InteliTrack.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
@@ -2784,6 +2797,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "InteliTrack.Application/1.0.0": {
+      "type": "project",
+      "path": "../InteliTrack.Application/InteliTrack.Application.csproj",
+      "msbuildProject": "../InteliTrack.Application/InteliTrack.Application.csproj"
+    },
     "InteliTrack.Domain/1.0.0": {
       "type": "project",
       "path": "../InteliTrack.Domain/InteliTrack.Domain.csproj",
@@ -2792,6 +2810,7 @@
   },
   "projectFileDependencyGroups": {
     "net9.0": [
+      "InteliTrack.Application >= 1.0.0",
       "InteliTrack.Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 9.0.1",
       "Microsoft.EntityFrameworkCore.Design >= 9.0.1",
@@ -2823,6 +2842,9 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
+            "/Users/adamatraore/InteliTrack/InteliTrack.Application/InteliTrack.Application.csproj": {
+              "projectPath": "/Users/adamatraore/InteliTrack/InteliTrack.Application/InteliTrack.Application.csproj"
+            },
             "/Users/adamatraore/InteliTrack/InteliTrack.Domain/InteliTrack.Domain.csproj": {
               "projectPath": "/Users/adamatraore/InteliTrack/InteliTrack.Domain/InteliTrack.Domain.csproj"
             }

@@ -5,6 +5,7 @@
 /Users/adamatraore/InteliTrack/InteliTrack.Domain/obj/Debug/net9.0/InteliTrack.Domain.AssemblyInfoInputs.cache
 /Users/adamatraore/InteliTrack/InteliTrack.Domain/obj/Debug/net9.0/InteliTrack.Domain.AssemblyInfo.cs
 /Users/adamatraore/InteliTrack/InteliTrack.Domain/obj/Debug/net9.0/InteliTrack.Domain.csproj.CoreCompileInputs.cache
+/Users/adamatraore/InteliTrack/InteliTrack.Domain/obj/Debug/net9.0/InteliTrack.Domain.sourcelink.json
 /Users/adamatraore/InteliTrack/InteliTrack.Domain/obj/Debug/net9.0/InteliTrack.Domain.dll
 /Users/adamatraore/InteliTrack/InteliTrack.Domain/obj/Debug/net9.0/refint/InteliTrack.Domain.dll
 /Users/adamatraore/InteliTrack/InteliTrack.Domain/obj/Debug/net9.0/InteliTrack.Domain.pdb

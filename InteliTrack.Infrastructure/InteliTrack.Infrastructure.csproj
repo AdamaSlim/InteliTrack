@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\InteliTrack.Domain\InteliTrack.Domain.csproj" />
+    <ProjectReference Include="..\InteliTrack.Application\InteliTrack.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>
