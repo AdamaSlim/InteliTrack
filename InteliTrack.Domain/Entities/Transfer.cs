@@ -1,5 +1,5 @@
 namespace InteliTrack.Domain.Entities;
-
+using InteliTrack.Domain.Enums;
 public class Transfer
 {
     public int Id { get; set; }
@@ -12,9 +12,12 @@ public class Transfer
 
     public Store DestinationStore { get; set; } = null!;
 
-    public string Status { get; set; } = "IN_TRANSIT";
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
     public ICollection<TransferItem> Items { get; set; } = new List<TransferItem>();
+
+    public DateTime? CompletedAt { get; set; }
+    public TransferStatus Status { get; set; }
+    = TransferStatus.Pending;
 }

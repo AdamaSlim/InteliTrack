@@ -1,4 +1,6 @@
+using InteliTrack.Application.DependencyInjection;
 using InteliTrack.Infrastructure.DependencyInjection;
+using InteliTrack.API.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +10,7 @@ builder.Services.AddInfrastructure(
 );
 
 
-builder.Services.AddControllers();
+builder.Services.AddApplication();
 
 
 builder.Services.AddEndpointsApiExplorer();
@@ -27,8 +29,13 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
 
-app.MapControllers();
+app.MapGet("/", () =>
+{
+    return "InteliTrack API running";
+});
+
+app.MapTransferEndpoints();
+app.MapStockEndpoints();
 
 app.Run();

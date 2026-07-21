@@ -1,4 +1,5 @@
 namespace InteliTrack.Domain.Entities;
+using InteliTrack.Domain.Enums;
 
 public class StockMovement
 {
@@ -18,7 +19,9 @@ public class StockMovement
 
     public int Quantity { get; set; }
 
-    public string MovementType { get; set; } = string.Empty;
+    public MovementType MovementType { get; set; }
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+    public string? Reason { get; set; }
 }
