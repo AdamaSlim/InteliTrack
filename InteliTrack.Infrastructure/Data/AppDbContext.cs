@@ -1,10 +1,24 @@
 using InteliTrack.Domain.Entities;
+using InteliTrack.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace InteliTrack.Infrastructure.Data;
 
 public class AppDbContext : DbContext
 {
+    private static readonly ValueConverter<DateTime, DateTime> UtcDateTimeConverter =
+        new(
+            value => value.Kind == DateTimeKind.Utc ? value : DateTime.SpecifyKind(value, DateTimeKind.Utc),
+            value => DateTime.SpecifyKind(value, DateTimeKind.Utc));
+
+    private static readonly ValueConverter<DateTime?, DateTime?> NullableUtcDateTimeConverter =
+        new(
+            value => value.HasValue
+                ? (value.Value.Kind == DateTimeKind.Utc ? value : DateTime.SpecifyKind(value.Value, DateTimeKind.Utc))
+                : value,
+            value => value.HasValue ? DateTime.SpecifyKind(value.Value, DateTimeKind.Utc) : value);
+
     public AppDbContext(DbContextOptions<AppDbContext> options)
         : base(options)
     {
@@ -29,123 +43,43 @@ public class AppDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
-
-        modelBuilder.Entity<Employee>()
-            .ToTable("employees");
-
-        modelBuilder.Entity<Role>()
-            .ToTable("roles");
-
-        modelBuilder.Entity<Store>()
-            .ToTable("stores");
-
-        modelBuilder.Entity<Product>()
-            .ToTable("products");
-
-        modelBuilder.Entity<Category>()
-            .ToTable("categories");
-
-        modelBuilder.Entity<Supplier>()
-            .ToTable("suppliers");
-
-        modelBuilder.Entity<Stock>()
-            .ToTable("stocks");
-
-        modelBuilder.Entity<Shelf>()
-            .ToTable("shelves");
-
-        modelBuilder.Entity<Section>()
-            .ToTable("sections");
+        modelBuilder.Entity<Transfer>()
+            .Property(t => t.Status)
+            .HasConversion<string>()
+            .HasColumnName("status");
 
         modelBuilder.Entity<StockMovement>()
-            .ToTable("stockmovements");
+            .Property(sm => sm.MovementType)
+            .HasConversion<string>()
+            .HasColumnName("movementtype");
 
-        modelBuilder.Entity<Transfer>()
-            .ToTable("transfers");
+        foreach (var entity in modelBuilder.Model.GetEntityTypes())
+        {
+            entity.SetTableName(entity.GetTableName()!.ToLower());
 
-        modelBuilder.Entity<TransferItem>()
-            .ToTable("transferitems");
+            foreach (var property in entity.GetProperties())
+            {
+                property.SetColumnName(property.GetColumnName().ToLower());
 
+                if (property.ClrType == typeof(DateTime))
+                {
+                    property.SetValueConverter(UtcDateTimeConverter);
+                }
+                else if (property.ClrType == typeof(DateTime?))
+                {
+                    property.SetValueConverter(NullableUtcDateTimeConverter);
+                }
+            }
 
-        // Employee mapping
+            foreach (var key in entity.GetForeignKeys())
+            {
+                key.SetConstraintName(key.GetConstraintName()?.ToLower());
+            }
 
-        modelBuilder.Entity<Employee>()
-            .Property(e => e.Id)
-            .HasColumnName("id");
-
-        modelBuilder.Entity<Employee>()
-            .Property(e => e.StoreId)
-            .HasColumnName("storeid");
-
-        modelBuilder.Entity<Employee>()
-            .Property(e => e.RoleId)
-            .HasColumnName("roleid");
-
-        modelBuilder.Entity<Employee>()
-            .Property(e => e.IsActive)
-            .HasColumnName("isactive");
-
-
-        // Store mapping
-
-        modelBuilder.Entity<Store>()
-            .Property(s => s.Id)
-            .HasColumnName("id");
-
-
-        // Role mapping
-
-        modelBuilder.Entity<Role>()
-            .Property(r => r.Id)
-            .HasColumnName("id");
-
-
-        // Product mapping
-
-        modelBuilder.Entity<Product>()
-            .Property(p => p.Id)
-            .HasColumnName("id");
-
-
-        // Stock mapping
-
-        modelBuilder.Entity<Stock>()
-            .Property(s => s.Id)
-            .HasColumnName("id");
-
-
-        // Shelf mapping
-
-        modelBuilder.Entity<Shelf>()
-            .Property(s => s.Id)
-            .HasColumnName("id");
-
-
-        // Section mapping
-
-        modelBuilder.Entity<Section>()
-            .Property(s => s.Id)
-            .HasColumnName("id");
-
-
-        // Transfer mapping
-
-        modelBuilder.Entity<Transfer>()
-            .Property(t => t.Id)
-            .HasColumnName("id");
-
-
-        // TransferItem mapping
-
-        modelBuilder.Entity<TransferItem>()
-            .Property(t => t.Id)
-            .HasColumnName("id");
-
-
-        // StockMovement mapping
-
-        modelBuilder.Entity<StockMovement>()
-            .Property(s => s.Id)
-            .HasColumnName("id");
+            foreach (var index in entity.GetIndexes())
+            {
+                index.SetDatabaseName(index.GetDatabaseName()?.ToLower());
+            }
+        }
     }
 }

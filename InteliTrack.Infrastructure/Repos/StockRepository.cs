@@ -21,7 +21,7 @@ public class StockRepository : IStockRepository
             .Include(s => s.Shelf)
                 .ThenInclude(sh => sh.Section)
                     .ThenInclude(sec => sec.Store)
-            .FirstOrDefaultAsync(s => s.Id == id && s.IsActive);
+            .FirstOrDefaultAsync(s => s.Id == id);
     }
 
     public async Task<Stock?> GetByProductAndShelfAsync(
@@ -34,8 +34,7 @@ public class StockRepository : IStockRepository
                 .ThenInclude(sh => sh.Section)
             .FirstOrDefaultAsync(s =>
                 s.ProductId == productId &&
-                s.ShelfId == shelfId &&
-                s.IsActive);
+                s.ShelfId == shelfId);
     }
 
     public async Task<Stock?> GetByProductAndStoreAsync(
@@ -48,23 +47,20 @@ public class StockRepository : IStockRepository
                 .ThenInclude(sh => sh.Section)
             .FirstOrDefaultAsync(s =>
                 s.ProductId == productId &&
-                s.Shelf.Section.StoreId == storeId &&
-                s.IsActive);
+                s.Shelf.Section.StoreId == storeId);
     }
 
     public async Task<int> GetTotalQuantityOnShelfAsync(int shelfId)
     {
         return await _context.Stocks
             .Where(s =>
-                s.ShelfId == shelfId &&
-                s.IsActive)
+                s.ShelfId == shelfId)
             .SumAsync(s => s.Quantity);
     }
 
     public async Task<IEnumerable<Stock>> GetAllAsync()
     {
         return await _context.Stocks
-            .Where(s => s.IsActive)
             .ToListAsync();
     }
 

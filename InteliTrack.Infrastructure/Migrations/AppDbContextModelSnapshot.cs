@@ -26,338 +26,444 @@ namespace InteliTrack.Infrastructure.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("boolean");
+                        .HasColumnType("boolean")
+                        .HasColumnName("isactive");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasColumnName("name");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("categories");
                 });
 
             modelBuilder.Entity("InteliTrack.Domain.Entities.Employee", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("email");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasColumnName("firstname");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("boolean");
+                        .HasColumnType("boolean")
+                        .HasColumnName("isactive");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasColumnName("lastname");
 
                     b.Property<int>("RoleId")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("roleid");
 
                     b.Property<int>("StoreId")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("storeid");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RoleId");
+                    b.HasIndex("RoleId")
+                        .HasDatabaseName("ix_employees_roleid");
 
-                    b.HasIndex("StoreId");
+                    b.HasIndex("StoreId")
+                        .HasDatabaseName("ix_employees_storeid");
 
-                    b.ToTable("Employees");
+                    b.ToTable("employees");
                 });
 
             modelBuilder.Entity("InteliTrack.Domain.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Barcode")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasColumnName("barcode");
 
                     b.Property<int>("CategoryId")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("categoryid");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("createdat");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("boolean");
+                        .HasColumnType("boolean")
+                        .HasColumnName("isactive");
 
                     b.Property<int>("MinimumStockLevel")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("minimumstocklevel");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("numeric");
+                        .HasColumnType("text")
+                        .HasColumnName("name");
 
                     b.Property<int>("SupplierId")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("supplierid");
+
+                    b.Property<decimal>("UnitPrice")
+                        .HasColumnType("numeric")
+                        .HasColumnName("unitprice");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("CategoryId")
+                        .HasDatabaseName("ix_products_categoryid");
 
-                    b.HasIndex("SupplierId");
+                    b.HasIndex("SupplierId")
+                        .HasDatabaseName("ix_products_supplierid");
 
-                    b.ToTable("Products");
+                    b.ToTable("products");
                 });
 
             modelBuilder.Entity("InteliTrack.Domain.Entities.Role", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("boolean");
+                        .HasColumnType("boolean")
+                        .HasColumnName("isactive");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasColumnName("name");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles");
+                    b.ToTable("roles");
                 });
 
             modelBuilder.Entity("InteliTrack.Domain.Entities.Section", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("boolean");
+                        .HasColumnType("boolean")
+                        .HasColumnName("isactive");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasColumnName("name");
 
                     b.Property<int>("StoreId")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("storeid");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("StoreId");
+                    b.HasIndex("StoreId")
+                        .HasDatabaseName("ix_sections_storeid");
 
-                    b.ToTable("Sections");
+                    b.ToTable("sections");
                 });
 
             modelBuilder.Entity("InteliTrack.Domain.Entities.Shelf", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<int>("Capacity")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("capacity");
 
                     b.Property<string>("Code")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasColumnName("code");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("boolean");
+                        .HasColumnType("boolean")
+                        .HasColumnName("isactive");
 
                     b.Property<int>("SectionId")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("sectionid");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SectionId");
+                    b.HasIndex("SectionId")
+                        .HasDatabaseName("ix_shelves_sectionid");
 
-                    b.ToTable("Shelves");
+                    b.ToTable("shelves");
                 });
 
             modelBuilder.Entity("InteliTrack.Domain.Entities.Stock", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("boolean");
-
                     b.Property<int>("ProductId")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("productid");
 
                     b.Property<int>("Quantity")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("quantity");
 
                     b.Property<int>("ShelfId")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("shelfid");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ProductId")
+                        .HasDatabaseName("ix_stocks_productid");
 
-                    b.HasIndex("ShelfId");
+                    b.HasIndex("ShelfId")
+                        .HasDatabaseName("ix_stocks_shelfid");
 
-                    b.ToTable("Stocks");
+                    b.ToTable("stocks");
                 });
 
             modelBuilder.Entity("InteliTrack.Domain.Entities.StockMovement", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
-
                     b.Property<int>("EmployeeId")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("employeeid");
 
-                    b.Property<string>("MovementType")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<DateTime>("MovementDate")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("movementdate");
+
+                    b.Property<int>("MovementType")
+                        .HasColumnType("integer")
+                        .HasColumnName("movementtype");
 
                     b.Property<int>("ProductId")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("productid");
 
                     b.Property<int>("Quantity")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("quantity");
+
+                    b.Property<string>("Reason")
+                        .HasColumnType("text")
+                        .HasColumnName("reason");
 
                     b.Property<int>("StoreId")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("storeid");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EmployeeId");
+                    b.HasIndex("EmployeeId")
+                        .HasDatabaseName("ix_stockmovements_employeeid");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ProductId")
+                        .HasDatabaseName("ix_stockmovements_productid");
 
-                    b.HasIndex("StoreId");
+                    b.HasIndex("StoreId")
+                        .HasDatabaseName("ix_stockmovements_storeid");
 
-                    b.ToTable("StockMovements");
+                    b.ToTable("stockmovements");
                 });
 
             modelBuilder.Entity("InteliTrack.Domain.Entities.Store", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("address");
+
                     b.Property<string>("City")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasColumnName("city");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("createdat");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("boolean");
+                        .HasColumnType("boolean")
+                        .HasColumnName("isactive");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasColumnName("name");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("phone");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Stores");
+                    b.ToTable("stores");
                 });
 
             modelBuilder.Entity("InteliTrack.Domain.Entities.Supplier", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ContactEmail")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasColumnName("contactemail");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("boolean");
+                        .HasColumnType("boolean")
+                        .HasColumnName("isactive");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasColumnName("name");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Suppliers");
+                    b.ToTable("suppliers");
                 });
 
             modelBuilder.Entity("InteliTrack.Domain.Entities.Transfer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime?>("CompletedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("completedat");
+
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("createdat");
+
+                    b.Property<DateTime?>("DeliveredAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("deliveredat");
 
                     b.Property<int>("DestinationStoreId")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("destinationstoreid");
+
+                    b.Property<int>("RequestedByEmployeeId")
+                        .HasColumnType("integer")
+                        .HasColumnName("requestedbyemployeeid");
 
                     b.Property<int>("SourceStoreId")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("sourcestoreid");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("Status")
+                        .HasColumnType("integer")
+                        .HasColumnName("status");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DestinationStoreId");
+                    b.HasIndex("DestinationStoreId")
+                        .HasDatabaseName("ix_transfers_destinationstoreid");
 
-                    b.HasIndex("SourceStoreId");
+                    b.HasIndex("SourceStoreId")
+                        .HasDatabaseName("ix_transfers_sourcestoreid");
 
-                    b.ToTable("Transfers");
+                    b.ToTable("transfers");
                 });
 
             modelBuilder.Entity("InteliTrack.Domain.Entities.TransferItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<int>("ProductId")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("productid");
 
                     b.Property<int>("Quantity")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("quantity");
 
                     b.Property<int>("TransferId")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("transferid");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ProductId")
+                        .HasDatabaseName("ix_transferitems_productid");
 
-                    b.HasIndex("TransferId");
+                    b.HasIndex("TransferId")
+                        .HasDatabaseName("ix_transferitems_transferid");
 
-                    b.ToTable("TransferItems");
+                    b.ToTable("transferitems");
                 });
 
             modelBuilder.Entity("InteliTrack.Domain.Entities.Employee", b =>
@@ -366,13 +472,15 @@ namespace InteliTrack.Infrastructure.Migrations
                         .WithMany("Employees")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_employees_roles_roleid");
 
                     b.HasOne("InteliTrack.Domain.Entities.Store", "Store")
                         .WithMany("Employees")
                         .HasForeignKey("StoreId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_employees_stores_storeid");
 
                     b.Navigation("Role");
 
@@ -385,13 +493,15 @@ namespace InteliTrack.Infrastructure.Migrations
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_products_categories_categoryid");
 
                     b.HasOne("InteliTrack.Domain.Entities.Supplier", "Supplier")
                         .WithMany("Products")
                         .HasForeignKey("SupplierId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_products_suppliers_supplierid");
 
                     b.Navigation("Category");
 
@@ -404,7 +514,8 @@ namespace InteliTrack.Infrastructure.Migrations
                         .WithMany("Sections")
                         .HasForeignKey("StoreId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_sections_stores_storeid");
 
                     b.Navigation("Store");
                 });
@@ -415,7 +526,8 @@ namespace InteliTrack.Infrastructure.Migrations
                         .WithMany("Shelves")
                         .HasForeignKey("SectionId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_shelves_sections_sectionid");
 
                     b.Navigation("Section");
                 });
@@ -426,13 +538,15 @@ namespace InteliTrack.Infrastructure.Migrations
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_stocks_products_productid");
 
                     b.HasOne("InteliTrack.Domain.Entities.Shelf", "Shelf")
                         .WithMany("Stocks")
                         .HasForeignKey("ShelfId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_stocks_shelves_shelfid");
 
                     b.Navigation("Product");
 
@@ -445,19 +559,22 @@ namespace InteliTrack.Infrastructure.Migrations
                         .WithMany()
                         .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_stockmovements_employees_employeeid");
 
                     b.HasOne("InteliTrack.Domain.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_stockmovements_products_productid");
 
                     b.HasOne("InteliTrack.Domain.Entities.Store", "Store")
                         .WithMany()
                         .HasForeignKey("StoreId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_stockmovements_stores_storeid");
 
                     b.Navigation("Employee");
 
@@ -472,13 +589,15 @@ namespace InteliTrack.Infrastructure.Migrations
                         .WithMany()
                         .HasForeignKey("DestinationStoreId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_transfers_stores_destinationstoreid");
 
                     b.HasOne("InteliTrack.Domain.Entities.Store", "SourceStore")
                         .WithMany()
                         .HasForeignKey("SourceStoreId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_transfers_stores_sourcestoreid");
 
                     b.Navigation("DestinationStore");
 
@@ -491,13 +610,15 @@ namespace InteliTrack.Infrastructure.Migrations
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_transferitems_products_productid");
 
                     b.HasOne("InteliTrack.Domain.Entities.Transfer", "Transfer")
                         .WithMany("Items")
                         .HasForeignKey("TransferId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_transferitems_transfers_transferid");
 
                     b.Navigation("Product");
 

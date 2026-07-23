@@ -113,12 +113,13 @@ public class StockService : IStockService
         return result;
     }
 
-    if (employee.StoreId != stock.Shelf.Section.StoreId)
-    {
-        result.Success = false;
-        result.Message = "Employee cannot access another store stock.";
-        return result;
-    }
+   if (employee.StoreId != stock.Shelf.Section.StoreId)
+{
+    result.Success = false;
+    result.Message =
+        $"Employee={employee.StoreId}, Section={stock.Shelf.Section.StoreId}";
+    return result;
+}
 
     if (stock.Quantity < dto.Quantity)
     {

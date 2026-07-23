@@ -1,3 +1,4 @@
+using System.Linq;
 using InteliTrack.Application.DTOs.Transfers;
 using InteliTrack.Application.Interfaces.Repos;
 using InteliTrack.Application.Interfaces.Repositories;
@@ -67,6 +68,7 @@ Console.WriteLine(
             {
                 SourceStoreId = dto.SourceStoreId,
                 DestinationStoreId = dto.DestinationStoreId,
+                RequestedByEmployeeId = employee.Id,
                 Status = TransferStatus.Pending
             };
 
@@ -116,22 +118,45 @@ Console.WriteLine(
             await _unitOfWork.CommitTransactionAsync();
 
             result.Success = true;
+            result.TransferId = transfer.Id;
+            result.Transfer = MapToTransferDto(transfer);
             result.Message =
                 "Transfer created and sent successfully.";
 
             return result;
         }
-        catch
+        catch (Exception ex)
         {
             await _unitOfWork.RollbackTransactionAsync();
 
-            result.Success = false;
-            result.Message =
-                "An error occurred while creating transfer.";
-
-            return result;
+            return new TransferResultDto
+            {
+                Success = false,
+                Message = ex.Message
+            };
         }
     }
+
+    private static TransferDto MapToTransferDto(Transfer transfer)
+    {
+        return new TransferDto
+        {
+            Id = transfer.Id,
+            SourceStoreId = transfer.SourceStoreId,
+            DestinationStoreId = transfer.DestinationStoreId,
+            RequestedByEmployeeId = transfer.RequestedByEmployeeId,
+            CreatedAt = transfer.CreatedAt,
+            DeliveredAt = transfer.DeliveredAt,
+            CompletedAt = transfer.CompletedAt,
+            Status = transfer.Status,
+            Items = transfer.Items.Select(item => new TransferItemDto
+            {
+                ProductId = item.ProductId,
+                Quantity = item.Quantity
+            }).ToList()
+        };
+    }
+
     public async Task<TransferResultDto> StartTransferAsync(
     int transferId,
     int employeeId)
@@ -260,8 +285,9 @@ Console.WriteLine(
         return result;
 
     }
-    catch
+    catch(Exception ex)
     {
+        Console.WriteLine("Error in StartTransferAsync: " + ex);
         await _unitOfWork.RollbackTransactionAsync();
 
         result.Success = false;
@@ -363,8 +389,9 @@ Console.WriteLine(
 
             return result;
         }
-        catch
+        catch(Exception ex)
         {
+            Console.WriteLine("Error in CompleteTransferAsync: " + ex);
             await _unitOfWork.RollbackTransactionAsync();
 
             result.Success = false;
@@ -500,8 +527,9 @@ Console.WriteLine(
         return result;
 
     }
-    catch
+    catch(Exception ex)
     {
+        Console.WriteLine("Error in CancelTransferAsync: " + ex);
         await _unitOfWork.RollbackTransactionAsync();
 
 

@@ -21,7 +21,7 @@ public class StockMovement
 
     public MovementType MovementType { get; set; }
 
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public DateTime MovementDate { get; set; } = DateTime.UtcNow;
 
     public string? Reason { get; set; }
 }

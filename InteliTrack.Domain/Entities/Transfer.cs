@@ -12,12 +12,15 @@ public class Transfer
 
     public Store DestinationStore { get; set; } = null!;
 
+    public int RequestedByEmployeeId { get; set; }
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
     public ICollection<TransferItem> Items { get; set; } = new List<TransferItem>();
 
+    public DateTime? DeliveredAt { get; set; }
+
     public DateTime? CompletedAt { get; set; }
-    public TransferStatus Status { get; set; }
-    = TransferStatus.Pending;
+
+    public TransferStatus Status { get; set; } = TransferStatus.Pending;
 }

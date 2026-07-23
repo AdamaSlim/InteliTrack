@@ -27,9 +27,9 @@ public class StoreRepository : IStoreRepository
             .ToListAsync();
     }
     public async Task<int> GetTotalQuantityOnShelfAsync(int shelfId)
-{
-    return await _context.Stocks
-        .Where(s => s.ShelfId == shelfId && s.IsActive)
-        .SumAsync(s => s.Quantity);
-}
+    {
+        return await _context.Stocks
+            .Where(s => s.ShelfId == shelfId)
+            .SumAsync(s => s.Quantity);
+    }
 }

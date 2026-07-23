@@ -8,6 +8,8 @@ public class Employee
 
     public string LastName { get; set; } = string.Empty;
 
+    public string Email { get; set; } = string.Empty;
+
     public int StoreId { get; set; }
 
     public Store Store { get; set; } = null!;

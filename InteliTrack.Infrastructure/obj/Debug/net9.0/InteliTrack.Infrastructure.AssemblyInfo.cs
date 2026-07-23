@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InteliTrack.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11c817acd37cd3d3ab156bb22c0acca1ec000293")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c62637674ca2cc379b23e2a6f1aa82be7018a70b")]
 [assembly: System.Reflection.AssemblyProductAttribute("InteliTrack.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InteliTrack.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

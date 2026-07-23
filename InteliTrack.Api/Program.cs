@@ -1,6 +1,8 @@
 using InteliTrack.Application.DependencyInjection;
 using InteliTrack.Infrastructure.DependencyInjection;
 using InteliTrack.API.Endpoints;
+using InteliTrack.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddInfrastructure(
     builder.Configuration
 );
+
 
 
 builder.Services.AddApplication();

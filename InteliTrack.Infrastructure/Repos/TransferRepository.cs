@@ -45,6 +45,19 @@ public class TransferRepository : ITransferRepository
 
     public void Update(Transfer transfer)
     {
-        _context.Transfers.Update(transfer);
+        var entry = _context.Entry(transfer);
+
+        entry.State = EntityState.Unchanged;
+        entry.Property(t => t.Status).IsModified = true;
+
+        if (transfer.DeliveredAt.HasValue)
+        {
+            entry.Property(t => t.DeliveredAt).IsModified = true;
+        }
+
+        if (transfer.CompletedAt.HasValue)
+        {
+            entry.Property(t => t.CompletedAt).IsModified = true;
+        }
     }
 }

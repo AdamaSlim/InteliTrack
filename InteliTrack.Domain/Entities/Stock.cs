@@ -13,6 +13,4 @@ public class Stock
     public Shelf Shelf { get; set; } = null!;
 
     public int Quantity { get; set; }
-
-    public bool IsActive { get; set; } = true;
 }

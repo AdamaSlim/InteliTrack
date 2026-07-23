@@ -23,7 +23,7 @@ public class StockMovementRepository : IStockMovementRepository
     {
         return await _context.StockMovements
             .Where(m => m.ProductId == productId)
-            .OrderByDescending(m => m.CreatedAt)
+            .OrderByDescending(m => m.MovementDate)
             .ToListAsync();
     }
 }
