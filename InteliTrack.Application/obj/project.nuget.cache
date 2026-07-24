@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "lT32c9vsiXo=",
+  "dgSpecHash": "TeupMw90z7Q=",
   "success": true,
   "projectFilePath": "/Users/adamatraore/InteliTrack/InteliTrack.Application/InteliTrack.Application.csproj",
   "expectedPackageFiles": [
+    "/Users/adamatraore/.nuget/packages/fluentvalidation/12.1.1/fluentvalidation.12.1.1.nupkg.sha512",
+    "/Users/adamatraore/.nuget/packages/fluentvalidation.dependencyinjectionextensions/12.1.1/fluentvalidation.dependencyinjectionextensions.12.1.1.nupkg.sha512",
     "/Users/adamatraore/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/10.0.10/microsoft.extensions.dependencyinjection.abstractions.10.0.10.nupkg.sha512"
   ],
   "logs": []
