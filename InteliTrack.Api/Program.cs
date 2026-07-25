@@ -3,8 +3,11 @@ using InteliTrack.Infrastructure.DependencyInjection;
 using InteliTrack.API.Endpoints;
 using InteliTrack.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using InteliTrack.API.Middleware;
+using InteliTrack.Api.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 
 builder.Services.AddInfrastructure(
@@ -31,6 +34,8 @@ if (app.Environment.IsDevelopment())
 
 
 app.UseHttpsRedirection();
+app.UseGlobalExceptionMiddleware();
+app.MapProductEndpoints();
 
 
 app.MapGet("/", () =>

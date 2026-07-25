@@ -137,3 +137,6 @@
 /Users/adamatraore/InteliTrack/InteliTrack.Api/obj/Debug/net9.0/InteliTrack.Api.pdb
 /Users/adamatraore/InteliTrack/InteliTrack.Api/obj/Debug/net9.0/InteliTrack.Api.genruntimeconfig.cache
 /Users/adamatraore/InteliTrack/InteliTrack.Api/obj/Debug/net9.0/ref/InteliTrack.Api.dll
+/Users/adamatraore/InteliTrack/InteliTrack.Api/bin/Debug/net9.0/FluentValidation.dll
+/Users/adamatraore/InteliTrack/InteliTrack.Api/bin/Debug/net9.0/FluentValidation.AspNetCore.dll
+/Users/adamatraore/InteliTrack/InteliTrack.Api/bin/Debug/net9.0/FluentValidation.DependencyInjectionExtensions.dll
