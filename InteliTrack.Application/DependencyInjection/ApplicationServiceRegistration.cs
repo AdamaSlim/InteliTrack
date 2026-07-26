@@ -2,6 +2,7 @@ using FluentValidation;
 using InteliTrack.Application.Interfaces.Services;
 using InteliTrack.Application.Services;
 using InteliTrack.Application.Validators.Stocks;
+using InteliTrack.Application.Interfaces.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace InteliTrack.Application.DependencyInjection;

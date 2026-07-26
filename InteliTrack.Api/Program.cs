@@ -36,6 +36,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseGlobalExceptionMiddleware();
 app.MapProductEndpoints();
+app.MapCategoryEndpoints();
 
 
 app.MapGet("/", () =>

@@ -37,6 +37,7 @@ public class AppDbContext : DbContext
     public DbSet<StockMovement> StockMovements => Set<StockMovement>();
     public DbSet<Transfer> Transfers => Set<Transfer>();
     public DbSet<TransferItem> TransferItems => Set<TransferItem>();
+    
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
