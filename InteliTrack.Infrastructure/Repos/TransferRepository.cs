@@ -5,21 +5,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InteliTrack.Infrastructure.Repos;
 
-public class TransferRepository : ITransferRepository
+public class TransferRepository 
+    : GenericRepository<Transfer>, ITransferRepository
 {
     private readonly AppDbContext _context;
 
-    public TransferRepository(AppDbContext context)
+     public TransferRepository(AppDbContext context)
+        : base(context)
     {
-        _context = context;
     }
-
-    public async Task<Transfer?> GetByIdAsync(int id)
-    {
-        return await _context.Transfers
-            .FirstOrDefaultAsync(t => t.Id == id);
-    }
-
 
     public async Task<Transfer?> GetByIdWithItemsAsync(int id)
     {
@@ -27,21 +21,6 @@ public class TransferRepository : ITransferRepository
             .Include(t => t.Items)
             .FirstOrDefaultAsync(t => t.Id == id);
     }
-
-
-    public async Task<IEnumerable<Transfer>> GetAllAsync()
-    {
-        return await _context.Transfers
-            .Include(t => t.Items)
-            .ToListAsync();
-    }
-
-
-    public async Task AddAsync(Transfer transfer)
-    {
-        await _context.Transfers.AddAsync(transfer);
-    }
-
 
     public void Update(Transfer transfer)
     {

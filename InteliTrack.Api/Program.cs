@@ -8,23 +8,26 @@ using InteliTrack.Api.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
 
 builder.Services.AddInfrastructure(
     builder.Configuration
 );
 
-
-
 builder.Services.AddApplication();
-
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
 var app = builder.Build();
-
 
 if (app.Environment.IsDevelopment())
 {
@@ -32,19 +35,27 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("AllowAll");
 
-app.UseHttpsRedirection();
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
 app.UseGlobalExceptionMiddleware();
+
 app.MapProductEndpoints();
 app.MapCategoryEndpoints();
-
+app.MapSupplierEndpoints();
+app.MapStoreEndpoints();
+app.MapSectionEndpoints();
+app.MapShelfEndpoints();
+app.MapEmployeeEndpoints();
+app.MapTransferEndpoints();
+app.MapStockEndpoints();
 
 app.MapGet("/", () =>
 {
     return "InteliTrack API running";
 });
-
-app.MapTransferEndpoints();
-app.MapStockEndpoints();
 
 app.Run();

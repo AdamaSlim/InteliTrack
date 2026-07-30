@@ -2,9 +2,6 @@ using InteliTrack.Domain.Entities;
 
 namespace InteliTrack.Application.Interfaces.Repositories;
 
-public interface IStoreRepository
+public interface IStoreRepository : IRepository<Store>
 {
-    Task<Store?> GetByIdAsync(int id);
-
-    Task<IEnumerable<Store>> GetAllAsync();
 }

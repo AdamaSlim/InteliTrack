@@ -3,12 +3,6 @@ using InteliTrack.Domain.Entities;
 namespace InteliTrack.Application.Interfaces.Repositories;
 
 public interface ICategoryRepository
+    : IRepository<Category>
 {
-    Task<Category?> GetByIdAsync(int id);
-
-    Task<IEnumerable<Category>> GetAllAsync();
-
-    Task AddAsync(Category category);
-
-    void Update(Category category);
 }

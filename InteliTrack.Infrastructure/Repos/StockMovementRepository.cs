@@ -3,20 +3,15 @@ using InteliTrack.Domain.Entities;
 using InteliTrack.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace InteliTrack.Infrastructure.Repositories;
+namespace InteliTrack.Infrastructure.Repos;
 
-public class StockMovementRepository : IStockMovementRepository
+public class StockMovementRepository
+    : GenericRepository<StockMovement>,
+      IStockMovementRepository
 {
-    private readonly AppDbContext _context;
-
     public StockMovementRepository(AppDbContext context)
+        : base(context)
     {
-        _context = context;
-    }
-
-    public async Task AddAsync(StockMovement movement)
-    {
-        await _context.StockMovements.AddAsync(movement);
     }
 
     public async Task<IEnumerable<StockMovement>> GetProductHistoryAsync(int productId)

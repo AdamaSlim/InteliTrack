@@ -2,7 +2,6 @@ using FluentValidation;
 using InteliTrack.Application.Interfaces.Services;
 using InteliTrack.Application.Services;
 using InteliTrack.Application.Validators.Stocks;
-using InteliTrack.Application.Interfaces.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace InteliTrack.Application.DependencyInjection;
@@ -17,6 +16,12 @@ public static class ApplicationServiceRegistration
 
         services.AddValidatorsFromAssemblyContaining<AddStockDtoValidator>();
         services.AddScoped<IProductService, ProductService>();
+        services.AddScoped<ICategoryService, CategoryService>();
+        services.AddScoped<ISupplierService, SupplierService>();
+        services.AddScoped<IStoreService, StoreService>();
+        services.AddScoped<IEmployeeService, EmployeeService>();
+        services.AddScoped<ISectionService, SectionService>();
+        services.AddScoped<IShelfService, ShelfService>();
 
         return services;
     }

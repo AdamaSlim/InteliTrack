@@ -1,5 +1,6 @@
 using InteliTrack.Application.DTOs.Products;
 using InteliTrack.Application.Interfaces.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace InteliTrack.Api.Endpoints;
 
@@ -9,12 +10,17 @@ public static class ProductEndpoints
     {
         var group = app.MapGroup("/api/products");
 
-        group.MapGet("/", async (IProductService service) =>
+
+        group.MapGet("/", async (
+            [FromServices] IProductService service) =>
         {
             return Results.Ok(await service.GetAllAsync());
         });
 
-        group.MapGet("/{id:int}", async (int id, IProductService service) =>
+
+        group.MapGet("/{id:int}", async (
+            int id,
+            [FromServices] IProductService service) =>
         {
             var product = await service.GetByIdAsync(id);
 
@@ -23,28 +29,33 @@ public static class ProductEndpoints
                 : Results.Ok(product);
         });
 
+
         group.MapPost("/", async (
-            CreateProductDto dto,
-            IProductService service) =>
+            [FromBody] CreateProductDto dto,
+            [FromServices] IProductService service) =>
         {
             var product = await service.CreateAsync(dto);
 
-            return Results.Created($"/api/products/{product.Id}", product);
+            return Results.Created(
+                $"/api/products/{product.Id}",
+                product);
         });
+
 
         group.MapPut("/{id:int}", async (
             int id,
-            UpdateProductDto dto,
-            IProductService service) =>
+            [FromBody] UpdateProductDto dto,
+            [FromServices] IProductService service) =>
         {
             var product = await service.UpdateAsync(id, dto);
 
             return Results.Ok(product);
         });
 
+
         group.MapDelete("/{id:int}", async (
             int id,
-            IProductService service) =>
+            [FromServices] IProductService service) =>
         {
             await service.DeactivateAsync(id);
 

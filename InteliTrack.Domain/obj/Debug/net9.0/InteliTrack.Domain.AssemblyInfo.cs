@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InteliTrack.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3894d211358f1630962845632ab4971925b551e4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+342fc10470a5d0844dfe963b2b2c2be03e867097")]
 [assembly: System.Reflection.AssemblyProductAttribute("InteliTrack.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InteliTrack.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

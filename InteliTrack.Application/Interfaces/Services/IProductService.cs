@@ -1,5 +1,6 @@
 using InteliTrack.Application.DTOs.Products;
 
+
 namespace InteliTrack.Application.Interfaces.Services;
 
 public interface IProductService

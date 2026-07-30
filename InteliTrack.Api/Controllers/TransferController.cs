@@ -82,10 +82,6 @@ public class TransferController : ControllerBase
         return Ok(result);
     }
 
-
-
-
-
     [HttpPost("{transferId}/cancel")]
     public async Task<IActionResult> CancelTransfer(
         int transferId,

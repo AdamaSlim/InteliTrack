@@ -1,13 +1,14 @@
-using InteliTrack.Application.Interfaces.Repositories;
+using InteliTrack.Application.Interfaces.Repos;
 using InteliTrack.Infrastructure.Data;
 using InteliTrack.Infrastructure.Repos;
-using InteliTrack.Infrastructure.Repositories;
+using InteliTrack.Infrastructure.Repos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using InteliTrack.Application.Interfaces.Services;
 using InteliTrack.Application.Services;
 using InteliTrack.Application.Interfaces.Repos;
+using InteliTrack.Application.Interfaces.Repositories;
 
 namespace InteliTrack.Infrastructure.DependencyInjection;
 
@@ -22,19 +23,17 @@ public static class InfrastructureServiceRegistration
                 configuration.GetConnectionString("DefaultConnection")
             ));
 
-        services.AddScoped<IStockService, StockService>();
-        services.AddScoped<ITransferService, TransferService>();
         services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<ICategoryRepository, CategoryRepository>();
+        services.AddScoped<ISupplierRepository, SupplierRepository>();
         services.AddScoped<IStoreRepository, StoreRepository>();
         services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+        services.AddScoped<ISectionRepository, SectionRepository>();
+        services.AddScoped<IShelfRepository, ShelfRepository>();
         services.AddScoped<IStockRepository, StockRepository>();
         services.AddScoped<ITransferRepository, TransferRepository>();
         services.AddScoped<IStockMovementRepository, StockMovementRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
-        services.AddScoped<ICategoryRepository, CategoryRepository>();
-        services.AddScoped<ICategoryService, CategoryService>();
-        services.AddScoped<ISupplierRepository, SupplierRepository>();
-        
 
         return services;
     }

@@ -5,14 +5,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InteliTrack.Infrastructure.Repos;
 
-public class StoreRepository : IStoreRepository
+public class StoreRepository
+    : GenericRepository<Store>,
+      IStoreRepository
 {
-    private readonly AppDbContext _context;
-
     public StoreRepository(AppDbContext context)
+        : base(context)
     {
-        _context = context;
     }
+
 
     public async Task<Store?> GetByIdAsync(int id)
     {
@@ -26,10 +27,14 @@ public class StoreRepository : IStoreRepository
             .Where(s => s.IsActive)
             .ToListAsync();
     }
-    public async Task<int> GetTotalQuantityOnShelfAsync(int shelfId)
+
+    public async Task AddAsync(Store store)
     {
-        return await _context.Stocks
-            .Where(s => s.ShelfId == shelfId)
-            .SumAsync(s => s.Quantity);
+        await _context.Stores.AddAsync(store);
+    }
+
+    public void Update(Store store)
+    {
+        _context.Stores.Update(store);
     }
 }

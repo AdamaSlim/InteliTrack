@@ -54,6 +54,14 @@ public class AppDbContext : DbContext
             .HasConversion<string>()
             .HasColumnName("movementtype");
 
+        modelBuilder.Entity<Store>().HasQueryFilter(s => s.IsActive);
+        modelBuilder.Entity<Category>().HasQueryFilter(c => c.IsActive);
+        modelBuilder.Entity<Supplier>().HasQueryFilter(s => s.IsActive);
+        modelBuilder.Entity<Product>().HasQueryFilter(p => p.IsActive);
+        modelBuilder.Entity<Section>().HasQueryFilter(s => s.IsActive);
+        modelBuilder.Entity<Shelf>().HasQueryFilter(s => s.IsActive);
+        modelBuilder.Entity<Employee>().HasQueryFilter(e => e.IsActive);
+
         foreach (var entity in modelBuilder.Model.GetEntityTypes())
         {
             entity.SetTableName(entity.GetTableName()!.ToLower());
