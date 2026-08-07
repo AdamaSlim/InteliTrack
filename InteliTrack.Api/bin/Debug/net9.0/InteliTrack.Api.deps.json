@@ -19,6 +19,14 @@
           "InteliTrack.Api.dll": {}
         }
       },
+      "BCrypt.Net-Next/4.2.0": {
+        "runtime": {
+          "lib/netstandard2.1/BCrypt-Net-Next.dll": {
+            "assemblyVersion": "4.2.0.0",
+            "fileVersion": "4.2.0.0"
+          }
+        }
+      },
       "FluentValidation/12.1.1": {
         "runtime": {
           "lib/net8.0/FluentValidation.dll": {
@@ -710,6 +718,7 @@
       },
       "InteliTrack.Infrastructure/1.0.0": {
         "dependencies": {
+          "BCrypt.Net-Next": "4.2.0",
           "InteliTrack.Application": "1.0.0",
           "InteliTrack.Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore": "9.0.1",
@@ -729,6 +738,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "BCrypt.Net-Next/4.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gwLD2KfCuwQesP17aVh4h6lpiMPEVt5Lbpndo0ej903hNUUTtyxt3ARdDjmuydBRTAUICc7OVKVbaOvc6SQYXA==",
+      "path": "bcrypt.net-next/4.2.0",
+      "hashPath": "bcrypt.net-next.4.2.0.nupkg.sha512"
     },
     "FluentValidation/12.1.1": {
       "type": "package",

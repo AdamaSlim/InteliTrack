@@ -1,14 +1,13 @@
 using InteliTrack.Application.Interfaces.Repos;
 using InteliTrack.Infrastructure.Data;
 using InteliTrack.Infrastructure.Repos;
-using InteliTrack.Infrastructure.Repos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using InteliTrack.Application.Interfaces.Services;
 using InteliTrack.Application.Services;
-using InteliTrack.Application.Interfaces.Repos;
 using InteliTrack.Application.Interfaces.Repositories;
+using InteliTrack.Infrastructure.Services;
 
 namespace InteliTrack.Infrastructure.DependencyInjection;
 
@@ -34,6 +33,7 @@ public static class InfrastructureServiceRegistration
         services.AddScoped<ITransferRepository, TransferRepository>();
         services.AddScoped<IStockMovementRepository, StockMovementRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddScoped<IPasswordHasher, PasswordHasher>();
 
         return services;
     }

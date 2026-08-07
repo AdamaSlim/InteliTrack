@@ -73,6 +73,11 @@ namespace InteliTrack.Infrastructure.Migrations
                         .HasColumnType("text")
                         .HasColumnName("lastname");
 
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("passwordhash");
+
                     b.Property<int>("RoleId")
                         .HasColumnType("integer")
                         .HasColumnName("roleid");
@@ -282,8 +287,9 @@ namespace InteliTrack.Infrastructure.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("movementdate");
 
-                    b.Property<int>("MovementType")
-                        .HasColumnType("integer")
+                    b.Property<string>("MovementType")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("movementtype");
 
                     b.Property<int>("ProductId")
@@ -419,8 +425,9 @@ namespace InteliTrack.Infrastructure.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("sourcestoreid");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("integer")
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("status");
 
                     b.HasKey("Id");

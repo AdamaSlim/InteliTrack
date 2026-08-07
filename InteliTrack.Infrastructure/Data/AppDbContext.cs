@@ -44,6 +44,14 @@ public class AppDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
+        modelBuilder.Entity<Employee>(entity =>
+        {
+            entity.Property(e => e.PasswordHash)
+                .HasColumnName("passwordhash")
+                .HasColumnType("text")
+                .IsRequired();
+        });
+
         modelBuilder.Entity<Transfer>()
             .Property(t => t.Status)
             .HasConversion<string>()

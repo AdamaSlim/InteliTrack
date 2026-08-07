@@ -1,9 +1,3 @@
-/Users/adamatraore/InteliTrack/InteliTrack.Infrastructure/obj/Debug/net9.0/InteliTrack.Infrastructure.csproj.AssemblyReference.cache
-/Users/adamatraore/InteliTrack/InteliTrack.Infrastructure/obj/Debug/net9.0/InteliTrack.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
-/Users/adamatraore/InteliTrack/InteliTrack.Infrastructure/obj/Debug/net9.0/InteliTrack.Infrastructure.AssemblyInfoInputs.cache
-/Users/adamatraore/InteliTrack/InteliTrack.Infrastructure/obj/Debug/net9.0/InteliTrack.Infrastructure.AssemblyInfo.cs
-/Users/adamatraore/InteliTrack/InteliTrack.Infrastructure/obj/Debug/net9.0/InteliTrack.Infrastructure.csproj.CoreCompileInputs.cache
-/Users/adamatraore/InteliTrack/InteliTrack.Infrastructure/obj/Debug/net9.0/InteliTrack.Infrastructure.sourcelink.json
 /Users/adamatraore/InteliTrack/InteliTrack.Infrastructure/bin/Debug/net9.0/InteliTrack.Infrastructure.deps.json
 /Users/adamatraore/InteliTrack/InteliTrack.Infrastructure/bin/Debug/net9.0/InteliTrack.Infrastructure.runtimeconfig.json
 /Users/adamatraore/InteliTrack/InteliTrack.Infrastructure/bin/Debug/net9.0/InteliTrack.Infrastructure.dll
@@ -12,6 +6,12 @@
 /Users/adamatraore/InteliTrack/InteliTrack.Infrastructure/bin/Debug/net9.0/InteliTrack.Domain.dll
 /Users/adamatraore/InteliTrack/InteliTrack.Infrastructure/bin/Debug/net9.0/InteliTrack.Domain.pdb
 /Users/adamatraore/InteliTrack/InteliTrack.Infrastructure/bin/Debug/net9.0/InteliTrack.Application.pdb
+/Users/adamatraore/InteliTrack/InteliTrack.Infrastructure/obj/Debug/net9.0/InteliTrack.Infrastructure.csproj.AssemblyReference.cache
+/Users/adamatraore/InteliTrack/InteliTrack.Infrastructure/obj/Debug/net9.0/InteliTrack.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/adamatraore/InteliTrack/InteliTrack.Infrastructure/obj/Debug/net9.0/InteliTrack.Infrastructure.AssemblyInfoInputs.cache
+/Users/adamatraore/InteliTrack/InteliTrack.Infrastructure/obj/Debug/net9.0/InteliTrack.Infrastructure.AssemblyInfo.cs
+/Users/adamatraore/InteliTrack/InteliTrack.Infrastructure/obj/Debug/net9.0/InteliTrack.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/adamatraore/InteliTrack/InteliTrack.Infrastructure/obj/Debug/net9.0/InteliTrack.Infrastructure.sourcelink.json
 /Users/adamatraore/InteliTrack/InteliTrack.Infrastructure/obj/Debug/net9.0/InteliTr.CA168FF4.Up2Date
 /Users/adamatraore/InteliTrack/InteliTrack.Infrastructure/obj/Debug/net9.0/InteliTrack.Infrastructure.dll
 /Users/adamatraore/InteliTrack/InteliTrack.Infrastructure/obj/Debug/net9.0/refint/InteliTrack.Infrastructure.dll

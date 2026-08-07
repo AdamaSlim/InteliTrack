@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace InteliTrack.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260723110704_AddMissingTransferSchema")]
-    partial class AddMissingTransferSchema
+    [Migration("20260807123130_BaselineCurrentDatabase")]
+    partial class BaselineCurrentDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -75,6 +75,11 @@ namespace InteliTrack.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("lastname");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("passwordhash");
 
                     b.Property<int>("RoleId")
                         .HasColumnType("integer")
@@ -285,8 +290,9 @@ namespace InteliTrack.Infrastructure.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("movementdate");
 
-                    b.Property<int>("MovementType")
-                        .HasColumnType("integer")
+                    b.Property<string>("MovementType")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("movementtype");
 
                     b.Property<int>("ProductId")
@@ -422,8 +428,9 @@ namespace InteliTrack.Infrastructure.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("sourcestoreid");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("integer")
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("status");
 
                     b.HasKey("Id");
